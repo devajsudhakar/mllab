@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Python Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        .program {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .program a {
+            text-decoration: none;
+            color: #3498db;
+            font-size: 18px;
+        }
+        .copy-btn, .download-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .copy-btn:hover, .download-btn:hover {
+            background-color: #27ae60;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 8px;
+            overflow-x: auto;
+            display: none; /* Hide code by default */
+        }
+        .btn-container {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Python Programs</h1>
+
+    <!-- Program 1 -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code1')">Program 1 </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code1')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/1.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code1"></pre>
+    </div>
+
+    <!-- Program 2 -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code2')">Program 2 </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code2')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/2.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code2"></pre>
+    </div>
+
+    <!-- Program 3 -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code3')">Program 3 </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code3')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/3.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code3"></pre>
+    </div>
+
+    <!-- Program 8 -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code4')">Program 8 </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code4')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/8.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code4"></pre>
+    </div>
+
+    <!-- Program 10 -->
+    <div class="program">
+      <a href="#" onclick="toggleCode('code5')">Program 10 </a>
+      <div class="btn-container">
+          <button class="copy-btn" onclick="copyCode('code5')">Copy Code</button>
+          <button class="download-btn" onclick="downloadFile('notebooks/10.ipynb')">Download .ipynb</button>
+      </div>
+      <pre id="code5"></pre>
+  </div>
+    <script>
+        // Function to fetch and extract code from a .ipynb file
+        function loadNotebookCode(filePath, codeElementId) {
+            fetch(filePath)
+                .then(response => response.json())
+                .then(data => {
+                    // Extract code from cells in the notebook (only code cells)
+                    let codeContent = '';
+                    data.cells.forEach(cell => {
+                        if (cell.cell_type === 'code') {
+                            codeContent += cell.source.join('\n') + '\n\n';
+                        }
+                    });
+
+                    // Display the code inside the <pre> element
+                    document.getElementById(codeElementId).textContent = codeContent;
+                })
+                .catch(error => console.error('Error loading notebook:', error));
+        }
+
+        // Load code from notebook files
+        loadNotebookCode('notebooks/1.ipynb', 'code1');
+        loadNotebookCode('notebooks/2.ipynb', 'code2');
+        loadNotebookCode('notebooks/3.ipynb', 'code3');
+        loadNotebookCode('notebooks/8.ipynb', 'code4');
+        loadNotebookCode('notebooks/10.ipynb', 'code5');
+
+        // Function to toggle the visibility of code
+        function toggleCode(codeElementId) {
+            var codeBlock = document.getElementById(codeElementId);
+            codeBlock.style.display = codeBlock.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Function to copy code to clipboard
+        function copyCode(id) {
+            var codeBlock = document.getElementById(id);
+            var text = codeBlock.textContent;
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Code copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Function to download the .ipynb file
+        function downloadFile(filePath) {
+            fetch(filePath)
+                .then(response => response.blob())
+                .then(blob => {
+                    // Create a link element to trigger the download
+                    const a = document.createElement('a');
+                    const url = URL.createObjectURL(blob);
+                    a.href = url;
+                    a.download = filePath.split('/').pop(); // Extract filename from the path
+                    document.body.appendChild(a);
+                    a.click();
+                    URL.revokeObjectURL(url); // Clean up the object URL
+                })
+                .catch(err => {
+                    console.error('Failed to download file:', err);
+                });
+        }
+    </script>
+
+</body>
+</html>
