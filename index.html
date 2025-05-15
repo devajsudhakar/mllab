@@ -49,7 +49,7 @@
 </head>
 <body>
 
-    <h1>Python Programs</h1>
+    <h1>Machine Learning LAB Programs</h1>
 
     <!-- Program 1 -->
     <div class="program">
@@ -81,24 +81,96 @@
         <pre id="code3"></pre>
     </div>
 
+    <!-- Program 4 -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code4')">Program 4 </a>
+        <div class="btn-container">
+                <button class="copy-btn" onclick="copyCode('code4')">Copy Code</button>
+                <button class="download-btn" onclick="downloadFile('notebooks/4.ipynb')">Download .ipynb</button>
+            </div>
+            <pre id="code4"></pre>
+    </div>
+
+    <!-- Program 5 -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code5')">Program 5 </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code5')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/5.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code5"></pre>
+    </div>
+
+    <!-- Program 6 -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code6')">Program 6 </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code6')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/6.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code6"></pre>
+    </div>
+
+    <!-- Program 6a -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code12')">Program 6a </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code12')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/6a.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code12"></pre>
+    </div>
+
+    <!-- Program 7a -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code7')">Program 7a </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code7')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/7a.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code7"></pre>
+    </div>
+
+    <!-- Program 7b -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code11')">Program 7b </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code11')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/7b.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code11"></pre>
+    </div>
+
+        
     <!-- Program 8 -->
     <div class="program">
-        <a href="#" onclick="toggleCode('code4')">Program 8 </a>
+        <a href="#" onclick="toggleCode('code8')">Program 8 </a>
         <div class="btn-container">
-            <button class="copy-btn" onclick="copyCode('code4')">Copy Code</button>
+            <button class="copy-btn" onclick="copyCode('code8')">Copy Code</button>
             <button class="download-btn" onclick="downloadFile('notebooks/8.ipynb')">Download .ipynb</button>
         </div>
-        <pre id="code4"></pre>
+        <pre id="code8"></pre>
     </div>
+
+    <!-- Program 9 -->
+    <div class="program">
+        <a href="#" onclick="toggleCode('code9')">Program 9 </a>
+        <div class="btn-container">
+            <button class="copy-btn" onclick="copyCode('code9')">Copy Code</button>
+            <button class="download-btn" onclick="downloadFile('notebooks/9.ipynb')">Download .ipynb</button>
+        </div>
+        <pre id="code9"></pre>
+    </div>
+
 
     <!-- Program 10 -->
     <div class="program">
-      <a href="#" onclick="toggleCode('code5')">Program 10 </a>
+      <a href="#" onclick="toggleCode('code10')">Program 10 </a>
       <div class="btn-container">
-          <button class="copy-btn" onclick="copyCode('code5')">Copy Code</button>
+          <button class="copy-btn" onclick="copyCode('code10')">Copy Code</button>
           <button class="download-btn" onclick="downloadFile('notebooks/10.ipynb')">Download .ipynb</button>
       </div>
-      <pre id="code5"></pre>
+      <pre id="code10"></pre>
   </div>
     <script>
         // Function to fetch and extract code from a .ipynb file
@@ -124,8 +196,15 @@
         loadNotebookCode('notebooks/1.ipynb', 'code1');
         loadNotebookCode('notebooks/2.ipynb', 'code2');
         loadNotebookCode('notebooks/3.ipynb', 'code3');
-        loadNotebookCode('notebooks/8.ipynb', 'code4');
-        loadNotebookCode('notebooks/10.ipynb', 'code5');
+        loadNotebookCode('notebooks/4.ipynb', 'code4');
+        loadNotebookCode('notebooks/5.ipynb', 'code5');
+        loadNotebookCode('notebooks/6.ipynb', 'code6');
+        loadNotebookCode('notebooks/6a.ipynb', 'code12');
+        loadNotebookCode('notebooks/7a.ipynb', 'code7');
+        loadNotebookCode('notebooks/7b.ipynb', 'code11');
+        loadNotebookCode('notebooks/8.ipynb', 'code8');
+        loadNotebookCode('notebooks/9.ipynb', 'code9');
+        loadNotebookCode('notebooks/10.ipynb', 'code10');
 
         // Function to toggle the visibility of code
         function toggleCode(codeElementId) {
